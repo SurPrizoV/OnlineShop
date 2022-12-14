@@ -5,3 +5,9 @@ function mainScreen() {
 
 window.application.screens['mainScreen'] = mainScreen;
 window.application.renderScreen('mainScreen');
+
+function catalogScreen() {
+    screen.innerHTML = '';
+    window.application.blocks['catalogBlock'] = catalogBlock;
+    window.application.renderBlock('catalogBlock', screen);
+}

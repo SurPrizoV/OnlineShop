@@ -17,8 +17,12 @@ function header(element) {
   header.appendChild(headerMenu);
   const headerCatalog = document.createElement("a");
   headerCatalog.classList.add("header__breadcrumbs");
-  headerCatalog.setAttribute("href", "#");
   headerCatalog.textContent = "Каталог";
+  headerCatalog.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.application.screens['catalogScreen'] = catalogScreen;
+    window.application.renderScreen('catalogScreen');
+  });
   headerMenu.appendChild(headerCatalog);
   const headerCart = document.createElement("a");
   headerCart.classList.add("header__breadcrumbs");
@@ -29,7 +33,7 @@ function header(element) {
 }
 
 function mainBlock(container) {
-  mainBlockArray = [];
+  let mainBlockArray = [];
   const top = document.createElement("div");
   top.classList.add("top", "center");
   mainBlockArray.push(top);
@@ -43,7 +47,11 @@ function mainBlock(container) {
   mainSubTitle.classList.add("subtitle");
   top.appendChild(mainSubTitle);
   const linkCatalog = document.createElement("a");
-  linkCatalog.setAttribute("href", "#");
+  linkCatalog.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.application.screens['catalogScreen'] = catalogScreen;
+    window.application.renderScreen('catalogScreen');
+  });
   linkCatalog.textContent = "Перейти в каталог";
   linkCatalog.classList.add("catalog");
   top.appendChild(linkCatalog);
@@ -338,10 +346,95 @@ function mainBlock(container) {
   sofaNastanBoxPrice.appendChild(sofaNastanPrice);
   const catalogLink = document.createElement('a');
   catalogLink.classList.add('catalog_link');
-  catalogLink.setAttribute('href', '#');
+  catalogLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.application.screens['catalogScreen'] = catalogScreen;
+    window.application.renderScreen('catalogScreen');
+  });
   catalogLink.textContent = 'Перейти в каталог';
   productCatalogBox.appendChild(catalogLink);
   mainBlockArray.forEach((element) => {
+    container.appendChild(element);
+  });
+  footer(container);
+}
+
+function catalogBlock(container) {
+  let catalogBlockArray = [];
+  const catalogTop = document.createElement("div");
+  catalogTop.classList.add("top_catalog", "center");
+  catalogBlockArray.push(catalogTop);
+  header(catalogTop);
+  const catalogTitle = document.createElement("h1");
+  catalogTitle.textContent = "Каталог";
+  catalogTitle.classList.add("catalog_title", 'title');
+  catalogTop.appendChild(catalogTitle);
+  const catalogNavigation = document.createElement('div');
+  catalogNavigation.classList.add('catalog_nav', 'center');
+  catalogBlockArray.push(catalogNavigation);
+  const navigationBox = document.createElement('nav');
+  catalogNavigation.appendChild(navigationBox);
+  const catalogMainLink = document.createElement('a');
+  catalogMainLink.setAttribute('href', 'index.html');
+  catalogMainLink.classList.add('breadcrumbs_link');
+  navigationBox.appendChild(catalogMainLink);
+  const catalogMainText = document.createElement('span');
+  catalogMainText.classList.add('breadcrumbs_text');
+  catalogMainText.textContent = 'Главная';
+  catalogMainLink.appendChild(catalogMainText);
+  const catalogCatalogLink = document.createElement('a');
+  catalogCatalogLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.application.screens['catalogScreen'] = catalogScreen;
+    window.application.renderScreen('catalogScreen');
+  });
+  catalogCatalogLink.classList.add('breadcrumbs_link');
+  navigationBox.appendChild(catalogCatalogLink);
+  const catalogCatalogText = document.createElement('span');
+  catalogCatalogText.classList.add('breadcrumbs_text');
+  catalogCatalogText.textContent = 'Каталог товаров';
+  catalogCatalogLink.appendChild(catalogCatalogText);
+  const catalogSelect = document.createElement('div');
+  catalogSelect.classList.add('select');
+  catalogNavigation.appendChild(catalogSelect);
+  const select = document.createElement('select');
+  catalogSelect.appendChild(select);
+  const selectValue1 = document.createElement('option');
+  selectValue1.setAttribute('value', '1');
+  selectValue1.textContent = 'Порядок: сперва новые';
+  select.appendChild(selectValue1);
+  const selectValue2 = document.createElement('option');
+  selectValue2.setAttribute('value', '2');
+  selectValue2.textContent = 'Порядок: сперва дорогие';
+  select.appendChild(selectValue2);
+  const selectValue3 = document.createElement('option');
+  selectValue3.setAttribute('value', '3');
+  selectValue3.textContent = 'Порядок: сперва дешевые';
+  select.appendChild(selectValue3);
+  const catalogProductBox = document.createElement('div');
+  catalogProductBox.classList.add('product__box', 'center');
+  catalogBlockArray.push(catalogProductBox);
+  const catalogProductContent = document.createElement('div');
+  catalogProductContent.classList.add('product_content');
+  catalogProductBox.appendChild(catalogProductContent);
+  tatran(catalogProductContent);
+  vilora(catalogProductContent);
+  menu(catalogProductContent);
+  asketa(catalogProductContent);
+  lunar(catalogProductContent);
+  nastan(catalogProductContent);
+  tatran(catalogProductContent);
+  vilora(catalogProductContent);
+  menu(catalogProductContent);
+  asketa(catalogProductContent);
+  lunar(catalogProductContent);
+  nastan(catalogProductContent);
+  const showMore = document.createElement('a');
+  showMore.setAttribute('href', '#');
+  showMore.classList.add('catalog_link');
+  showMore.textContent = 'Показать ещё';
+  catalogProductContent.appendChild(showMore);
+  catalogBlockArray.forEach((element) => {
     container.appendChild(element);
   });
   footer(container);
@@ -367,11 +460,186 @@ function icons (element) {
   return element.appendChild(icons);
 }
 
+function tatran (element) {
+  const tatranBad = document.createElement('div');
+  tatranBad.classList.add('product');
+  element.appendChild(tatranBad);
+  icons(tatranBad);
+  const tatranBadImage = document.createElement('img');
+  tatranBadImage.setAttribute('src', './src/img/catalog/catalog_prod_1.jpg');
+  tatranBadImage.classList.add('product_img');
+  tatranBad.appendChild(tatranBadImage);
+  const tatranBadLink = document.createElement('a');
+  tatranBadLink.setAttribute('href', '#');
+  tatranBad.appendChild(tatranBadLink);
+  const tatranBadName = document.createElement('p');
+  tatranBadName.textContent = 'Кровать TATRAN';
+  tatranBadName.classList.add('item');
+  tatranBadLink.appendChild(tatranBadName);
+  const tatranBadInfo = document.createElement('p');
+  tatranBadInfo.textContent = 'Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.';
+  tatranBadInfo.classList.add('desc');
+  tatranBad.appendChild(tatranBadInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  tatranBad.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '120 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(tatranBad);
+}
+
+function vilora (element) {
+  const vilora = document.createElement('div');
+  vilora.classList.add('product');
+  element.appendChild(vilora);
+  const viloraImage = document.createElement('img');
+  viloraImage.setAttribute('src', './src/img/catalog/catalog_prod_2.jpg');
+  viloraImage.classList.add('product_img');
+  vilora.appendChild(viloraImage);
+  const viloraLink = document.createElement('a');
+  viloraLink.setAttribute('href', '#');
+  vilora.appendChild(viloraLink);
+  const viloraName = document.createElement('p');
+  viloraName.textContent = 'Кресло VILORA';
+  viloraName.classList.add('item');
+  viloraLink.appendChild(viloraName);
+  const viloraInfo = document.createElement('p');
+  viloraInfo.textContent = 'Мягкое и уютное, аккуратное и стильное. Упругие подушки сиденья и приятная на ощупь ткань.';
+  viloraInfo.classList.add('desc');
+  vilora.appendChild(viloraInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  vilora.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '21 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(vilora);
+}
+
+function menu (element) {
+  const menu = document.createElement('div');
+  menu.classList.add('product');
+  element.appendChild(menu);
+  const menuImage = document.createElement('img');
+  menuImage.setAttribute('src', './src/img/catalog/catalog_prod_3.jpg');
+  menuImage.classList.add('product_img');
+  menu.appendChild(menuImage);
+  const menuLink = document.createElement('a');
+  menuLink.setAttribute('href', '#');
+  menu.appendChild(menuLink);
+  const menuName = document.createElement('p');
+  menuName.textContent = 'Стол MENU';
+  menuName.classList.add('item');
+  menuLink.appendChild(menuName);
+  const menuInfo = document.createElement('p');
+  menuInfo.textContent = 'Для того чтобы трапезничать было приятно, необходим правильный обеденный стол.';
+  menuInfo.classList.add('desc');
+  menu.appendChild(menuInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  menu.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '34 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(menu);
+}
+
+function asketa (element) {
+  const asketa = document.createElement('div');
+  asketa.classList.add('product');
+  element.appendChild(asketa);
+  const asketaImage = document.createElement('img');
+  asketaImage.setAttribute('src', './src/img/catalog/catalog_prod_4.jpg');
+  asketaImage.classList.add('product_img');
+  asketa.appendChild(asketaImage);
+  const asketaLink = document.createElement('a');
+  asketaLink.setAttribute('href', '#');
+  asketa.appendChild(asketaLink);
+  const asketaName = document.createElement('p');
+  asketaName.textContent = 'Диван ASKESTA';
+  asketaName.classList.add('item');
+  asketaLink.appendChild(asketaName);
+  const asketaInfo = document.createElement('p');
+  asketaInfo.textContent = 'Благодаря защелкивающемуся механизму диван легко раскладывается в комфортную кровать.';
+  asketaInfo.classList.add('desc');
+  asketa.appendChild(asketaInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  asketa.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '68 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(asketa);
+}
+
+function lunar (element) {
+  const lunar = document.createElement('div');
+  lunar.classList.add('product');
+  element.appendChild(lunar);
+  const lunarImage = document.createElement('img');
+  lunarImage.setAttribute('src', './src/img/catalog/catalog_prod_5.jpg');
+  lunarImage.classList.add('product_img');
+  lunar.appendChild(lunarImage);
+  const lunarLink = document.createElement('a');
+  lunarLink.setAttribute('href', '#');
+  lunar.appendChild(lunarLink);
+  const lunarName = document.createElement('p');
+  lunarName.textContent = 'Кресло LUNAR';
+  lunarName.classList.add('item');
+  lunarLink.appendChild(lunarName);
+  const lunarInfo = document.createElement('p');
+  lunarInfo.textContent = 'Прекрасно переносит солнечные лучи, перепады влажности и любые осадки.';
+  lunarInfo.classList.add('desc');
+  lunar.appendChild(lunarInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  lunar.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '40 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(lunar);
+}
+
+function nastan (element) {
+  const nastan = document.createElement('div');
+  nastan.classList.add('product');
+  element.appendChild(nastan);
+  const nastanImage = document.createElement('img');
+  nastanImage.setAttribute('src', './src/img/catalog/catalog_prod_6.jpg');
+  nastanImage.classList.add('product_img');
+  nastan.appendChild(nastanImage);
+  const nastanLink = document.createElement('a');
+  nastanLink.setAttribute('href', '#');
+  nastan.appendChild(nastanLink);
+  const nastanName = document.createElement('p');
+  nastanName.textContent = 'Шкаф Nastan';
+  nastanName.classList.add('item');
+  nastanLink.appendChild(nastanName);
+  const nastanInfo = document.createElement('p');
+  nastanInfo.textContent = 'Мебель может быть оснащена разнообразными системами подсветки.';
+  nastanInfo.classList.add('desc');
+  nastan.appendChild(nastanInfo);
+  const boxPrice = document.createElement('div');
+  boxPrice.classList.add('box__price');
+  nastan.appendChild(boxPrice);
+  const price = document.createElement('p');
+  price.textContent = '80 000 руб.';
+  price.classList.add('price');
+  boxPrice.appendChild(price);
+  return element.appendChild(nastan);
+}
+
 function footer (element) {
   const footer = document.createElement('footer');
   footer.classList.add('footer', 'center');
   const footerLinkLogo = document.createElement('a');
-  footerLinkLogo.setAttribute('href', '#');
+  footerLinkLogo.setAttribute("href", "index.html");
   footerLinkLogo.classList.add('footer__logo');
   footer.appendChild(footerLinkLogo);
   const footerLogo = document.createElement('img');
@@ -391,12 +659,16 @@ function footer (element) {
   footerMenuTitle.textContent = 'Меню';
   footerMenu.appendChild(footerMenuTitle);
   const footerMainLink = document.createElement('a');
-  footerMainLink.setAttribute('href', '#');
+  footerMainLink.setAttribute('href', 'index.html');
   footerMainLink.classList.add('footer_menu_item');
   footerMainLink.textContent = 'Главная';
   footerMenu.appendChild(footerMainLink);
   const footerCatalogLink = document.createElement('a');
-  footerCatalogLink.setAttribute('href', '#');
+  footerCatalogLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.application.screens['catalogScreen'] = catalogScreen;
+    window.application.renderScreen('catalogScreen');
+  });
   footerCatalogLink.classList.add('footer_menu_item');
   footerCatalogLink.textContent = 'Каталог';
   footerMenu.appendChild(footerCatalogLink);
