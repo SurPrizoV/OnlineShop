@@ -270,3 +270,143 @@ body {
     text-decoration: line-through;
     color: #888888;
 }
+
+.catalog_link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin-bottom: 64px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.catalog_link:hover {
+    text-decoration: inherit;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+.footer {
+    background-color: #F7F6F6;
+    padding-top: 32px;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 216px;
+}
+  
+.footer__logo {
+    transition: all 0.3s;
+}
+  
+.footer__logo:hover {
+    transform: scale(1.05);
+}
+  
+.footer_items {
+    gap: 129px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+  
+.footer_text {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+  
+.footer_menu_item {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #888888;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+  
+.footer_menu_item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #ccc;
+    color: #000;
+}
+  
+.footer__menu {
+    flex-direction: column;
+    display: flex;
+    gap: 12px;
+}
+  
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+  
+.footer_icon {
+    transition: all 0.3s;
+}
+  
+.footer_icon:hover {
+    transform: scale(1.07);
+}
+
+.footer_form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+  
+.footer_news {
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    margin-bottom: 4px;
+}
+  
+.footer_input {
+    background: #ffffff;
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    border-radius: 20px;
+    width: 275px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #c4c4c4;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: all 0.3s;
+}
+  
+.footer_input:hover {
+    border: 1px solid #888888;
+}
+  
+.footer_input::placeholder {
+    color: #c4c4c4;
+}
+  
+.footer_button {
+    background: #c9c2c269;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 20px;
+    width: 275px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+  
+.footer_button:hover {
+    background-color: #000;
+    color: #ffffff;
+}
