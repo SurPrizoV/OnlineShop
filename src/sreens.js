@@ -11,3 +11,9 @@ function catalogScreen() {
     window.application.blocks['catalogBlock'] = catalogBlock;
     window.application.renderBlock('catalogBlock', screen);
 }
+
+function cartScreen() {
+    screen.innerHTML = '';
+    window.application.blocks['cartBlock'] = cartBlock;
+    window.application.renderBlock('cartBlock', screen);
+}
